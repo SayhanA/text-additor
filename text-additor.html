@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Tailwind CSS Framework -->
+        <script src="https://cdn.tailwindcss.com"></script>
+            <!-- Font Awesome Icons -->
+        <script src="https://kit.fontawesome.com/c756527c45.js" crossorigin="anonymous"></script>
+
+        <title>My Text Additory</title>
+        <style>
+            h2{
+                font-style: ;
+                text-align: ;
+                text-transform: capitalize;
+                
+            }
+        </style>
+    </head>
+    <body>
+        <div class="bg-blue-300 w-9/12 mx-auto my-5 rounded-md py-5 px-40">
+            <h2 class="text-4xl font-bold text-center pb-5">My Text Editor</h2>
+            <div class="border border-black bg-blue-100 p-5 mb-5">
+                <div class="flex justify-between pt-2">
+                    <div>
+                        <button id="btn-bold" onclick="btnBold()" class="font-extrabold text-xl font-serif">B</button>
+                        <button id="btn-italic" class="font-extrabold text-xl font-serif italic px-5">I</button>
+                        <button id="btn-underline" class="font-extrabold text-xl font-serif underline">U</button>
+                    </div>
+                    <div>
+                        <button id="btn-left-align" class="font-extrabold text-xl font-serif px-3"><i class="fa-solid fa-align-left"></i></button>
+                        <button id="btn-center-align" class="font-extrabold text-xl font-serif italic px-3"><i class="fa-solid fa-align-center"></i></button>
+                        <button id="btn-right-align" class="font-extrabold text-xl font-serif underline px-3"><i class="fa-solid fa-align-right"></i></button>
+                        <button id="btn-justify" class="font-extrabold text-xl font-serif underline px-3"><i class="fa-solid fa-align-justify"></i></button>
+                    </div>
+                    <div>
+                        <button id="btn-font-size" class="font-medium text-xl"><input type="number" value="17" id="number-input" min="1" class="w-[40px]  bg-blue-100 text-black"></button>
+                        <select id="btn-case" name="text-case" class="bg-blue-100 mx-3 font-bold" id="text-case">
+                            <option id="btn-uppercase" value="Aa">AA</option>
+                            <option value="aa">Aa</option>
+                            <option value="AA">aa</option>
+
+                        </select>
+                        <button id="btn-text-color" class="font-extrabold text-xl "> <input type="color" id="favcolor" name="favcolor" value="#ff0000"><br><br></button>
+                    </div>
+                    
+                </div>
+                <hr class="border border-black mb-5">
+                <textarea id="text-area" class="w-full text-xl p-3" name="" id="" cols="10" rows="10"></textarea>
+            </div>
+        </div>
+
+        <script>
+            function btnBold(){
+                const textField = document.getElementById('text-area')
+                textField.style.fontWeight = '700'
+            }
+            document.getElementById('btn-italic').addEventListener('click',function(){
+                document.getElementById('text-area').style.fontStyle = 'Italic'
+            })
+            document.getElementById('btn-underline').addEventListener('click',function(){
+                document.getElementById('text-area').style.textDecoration = 'underline'
+            })
+            document.getElementById('btn-left-align').addEventListener('click',function(){
+                document.getElementById('text-area').style.textAlign = 'left'
+            })
+            document.getElementById('btn-center-align').addEventListener('click',function(){
+                document.getElementById('text-area').style.textAlign = 'center'
+            })
+            document.getElementById('btn-right-align').addEventListener('click',function(){
+                document.getElementById('text-area').style.textAlign = 'right'
+            })
+            document.getElementById('btn-justify').addEventListener('click',function(){
+                document.getElementById('text-area').style.textAlign = 'justify'
+            })
+            document.getElementById('btn-font-size').addEventListener('click',function(){
+                const fontSizeString = document.getElementById('number-input').value
+                const fontSize = parseInt(fontSizeString);
+                console.log(fontSize);
+                const value = fontSize+'px';
+                console.log(value)
+                document.getElementById('text-area').style.fontSize = value
+            })
+
+            document.getElementById('btn-case').addEventListener('click',function(){
+                document.getElementById('text-area').style.textTransform = 'uppercase'
+            })
+            document.getElementById('favcolor').addEventListener('click',function(){
+                const colorCode = document.getElementById('favcolor').value;
+                console.log(colorCode)
+                document.getElementById('text-area').style.color = colorCode
+            })
+        </script>
+    </body>
+</html>
